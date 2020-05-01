@@ -21,6 +21,18 @@ def readBackup():
 def printDate():
 	return datetime.datetime.now().strftime("%A, %d %B %Y om %H:%M")
 
+def shortDate():
+	return datetime.datetime.now().strftime("%d-%m-%Y")
+
+def createFolder(dir):
+	if not os.path.exists(dir):
+		os.mkdir(dir)
+
 def writeLog(txt):
-	logfile = open(readConfig('rootFolder') + "log.txt", 'a')
+	createFolder(readConfig('rootFolder') + "logs")
+	fn = readConfig('rootFolder') + "/logs/" + shortDate() + ".txt"
+	if os.path.exists(fn):
+		logfile = open(fn, 'a')
+	else:
+		logfile = open(fn, 'w')
 	logfile.write(printDate() + ": " + txt + "\n")

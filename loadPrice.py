@@ -12,19 +12,19 @@ def loadURL(url):
 # where success indicates whether the price was read from backup, or live from the remote API
 def loadPrice(): 
 	response = loadURL('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&apikey=' + readConfig('api_key') + '&symbol=INGA.AMS&outputsize=compact&datatype=json')
+	d = json.loads(response)
 
-	contents = json.loads(response)['Global Quote']
-
-	if contents is None:
+	if 'Global Quote' not in d:
 		writeLog("ERROR! API limit reached.")
 		return (readBackup(), False)
 	else:
+		contents = d['Global Quote']
 		for k in contents.keys():
 			if len(k.split("price")) > 1:
 				price = contents[k]
 
 		if k is not None:
-			writeLog("Successfully retrieved value " + price + ' from origin.')
+			writeLog("Successfully retrieved value " + price + 'EUR from remote.')
 			return (price, True)
 		else:
 			writeLog("FOUT! Hier gebeurde iets heel geks...")

@@ -1,9 +1,9 @@
 {
-	"rootFolder": "",
-	"api_key": "",
-	"stockName": "",
-	"closingHour": 19,
-	"closingMinutes": 30,
+	"rootFolder": "C:\\Users\\stanv\\OneDrive\\Documents\\Rainmeter\\Skins\\Stocks\\",
+	"api_key": "K2RAV5JYMOOVLZMB",
+	"stockName": "INGA.AMS",
+	"closingHour": 17,
 	"openingHour": 9,
+	"closingMinutes": 30,
 	"openingMinutes": 0
 }
