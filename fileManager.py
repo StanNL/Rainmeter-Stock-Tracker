@@ -2,6 +2,7 @@ import json
 import os
 import datetime
 
+config = json.loads(open(os.path.join(os.path.dirname(__file__), "config.json"),'r').read())
 
 def parseAmount(amount):
 	v = str(round(float(amount), 2))
@@ -12,14 +13,13 @@ def parseAmount(amount):
 	return v + 'EUR'
 
 def readConfig(key):
-	config = json.loads(open(os.path.join(os.path.dirname(__file__), "config.json"),'r').read())
 	return config[key]
 
 def readBackup():
-	return parseAmount(open(readConfig('rootFolder') + "lastvalue.txt", 'r').read())
+	return parseAmount(open(readConfig('rootFolder') + "lastvalue.txt", 'r').read().split("\n")[0])
 
 def printDate():
-	return datetime.datetime.now().strftime("%A, %d %B %Y om %H:%M")
+	return datetime.datetime.now().strftime("%A, %d %B %Y at %H:%M")
 
 def shortDate():
 	return datetime.datetime.now().strftime("%d-%m-%Y")
@@ -36,3 +36,6 @@ def writeLog(txt):
 	else:
 		logfile = open(fn, 'w')
 	logfile.write(printDate() + ": " + txt + "\n")
+
+def setColour(col):
+	open(readConfig('rootFolder') + 'color.txt', 'w').write(col)
