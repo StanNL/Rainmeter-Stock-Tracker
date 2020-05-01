@@ -1,3 +1,3 @@
 import webbrowser
-from files import readConfig
+from fileManager import readConfig
 webbrowser.open("https://google.com/search?q=" + readConfig("stockName"))
