@@ -1,9 +1,13 @@
 {
-	"rootFolder": "",
-	"api_key": "",
-	"stockName": "INGA.AMS",
-	"closingHour": 17,
-	"openingHour": 9,
-	"closingMinutes": 30,
-	"openingMinutes": 0
+    "api_key": "",
+    "closedDays": [
+        6,
+        7
+    ],
+    "closingHour": 17,
+    "closingMinutes": 30,
+    "openingHour": 9,
+    "openingMinutes": 0,
+    "rootFolder": "",
+    "stockName": "INGA.AMS"
 }

@@ -13,7 +13,12 @@ def parseAmount(amount):
 	return v + 'EUR'
 
 def readConfig(key):
-	return config[key]
+	if key in config:
+		if key is 'rootFolder' and config[key][len(config[key])-1] is not '\\':
+			return config[key] + '\\'
+		return config[key]
+	else:
+		return None
 
 def readBackup():
 	return parseAmount(open(readConfig('rootFolder') + "lastvalue.txt", 'r').read().split("\n")[0])
@@ -35,7 +40,7 @@ def writeLog(txt):
 		logfile = open(fn, 'a')
 	else:
 		logfile = open(fn, 'w')
-	logfile.write(printDate() + ": " + txt + "\n")
+	logfile.write('\n' + printDate() + ": " + txt)
 
 def setColour(col):
 	open(readConfig('rootFolder') + 'color.txt', 'w').write(col)
