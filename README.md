@@ -1,5 +1,9 @@
 # Rainmeter Stock Tracker
-A small project for adding a stock-tracking Rainmeter skin. You can read more about Raimeter [here](https://www.rainmeter.net).
+A small project for adding a stock-tracking Rainmeter skin. You can read more about Rainmeter [here](https://www.rainmeter.net).</p>
+
+<center>
+<img alt="sample image" src="Sample.jpg" style='max-width: 420px'/>
+</center>
 
 ## Prerequisities
 * A recent Rainmeter installation which you can download [here](https://www.rainmeter.net).
