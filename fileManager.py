@@ -21,7 +21,7 @@ def readConfig(key):
 		return None
 
 def readBackup():
-	return parseAmount(open(readConfig('rootFolder') + "lastvalue.txt", 'r').read().split("\n")[0])
+	return open(readConfig('rootFolder') + "lastvalue.txt", 'r').read().split("\n")[0]
 
 def printDate():
 	return datetime.datetime.now().strftime("%A, %d %B %Y at %H:%M")

@@ -19,8 +19,8 @@ def loadPrice():
 	d = json.loads(response)
 
 	if 'Global Quote' not in d:
-		writeLog("ERROR! API limit reached.")
-		return (readBackup(), False)
+		writeLog("ERROR! API limit reached. Reading from backup...")
+		return (readBackup(), False, None)
 	else:
 		contents = d['Global Quote']
 		for k in contents.keys():
